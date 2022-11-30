@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -nma
+l -ma
