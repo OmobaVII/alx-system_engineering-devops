@@ -1,2 +1,3 @@
-0 string SCHOOL School
-!:mime text/x-School
+#!/bin/bash
+0 search/School School Text Contains School
+!:mime text/School
