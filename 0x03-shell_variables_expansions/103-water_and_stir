@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'ibase=water; ibase=stir; obase=bestchol; $WATER + $STIR | bc
+echo $(($((water#$WATER)) + $((stir#$STIR))))
