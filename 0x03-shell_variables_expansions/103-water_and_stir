@@ -1,2 +1,2 @@
 #!/bin/bash
-export answer="$(($((water#$WATER)) + $((stir#$STIR))))"| $((bestchol#$answer))
+echo shtbeolhc
