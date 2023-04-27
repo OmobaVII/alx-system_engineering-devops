@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# A script that displays Best School 10 times using while loop.
+# But says Hi before the tenth time
+
+i="0"
+
+while [ $i -lt 10 ]
+do
+	echo "Best School"
+	i=$((i + 1))
+	if ((i == 9))
+	then
+		echo "Hi"
+	fi
+done
