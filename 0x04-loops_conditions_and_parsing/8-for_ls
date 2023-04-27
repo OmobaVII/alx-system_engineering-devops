@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A script that displays the content of the current directory in a list format
+
+LIST="$(pwd)"
+for _ in "$LIST"/*
+do
+	filename=$(basename "$_")
+	echo "${filename#*-}"
+done
