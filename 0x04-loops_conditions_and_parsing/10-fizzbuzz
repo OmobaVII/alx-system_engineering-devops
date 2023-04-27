@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# A script that displays numbers from 1 to 100. FIZZBUZZ
+
+i="0"
+while [ $i -lt 100 ]
+do
+	i=$((i + 1))
+	if (($((i % 15)) == 0))
+	then
+		echo "FizzBuzz"
+	elif (($((i % 3)) == 0))
+	then
+		echo "Fizz"
+	elif (($((i % 5)) == 0))
+	then
+		echo "Buzz"
+	else
+		echo $i
+	fi
+done
