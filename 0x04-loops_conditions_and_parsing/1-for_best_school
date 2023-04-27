@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A Bash Script that displays Best School 10 times.
+# SpellCheck prevents me from using i to iterate.
+for _ in {1..10}
+do
+	echo "Best School"
+done
