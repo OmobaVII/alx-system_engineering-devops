@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # A script that displays the number occurrence of an IP, the IP and the HTTP code
 
-file="apache-access.log"
+file=apache-access.log
 awk '{print $1, $9}' $file | sort | uniq -c | awk '{print $1, $2, $3}' | sort -rn
