@@ -8,25 +8,25 @@ int infinite_while(void);
  * main - a program that creates 5 zombie processes
  * Return: 0 for success
  */
-void main(void)
+int main(void)
 {
 	int a;
-	pid_t pid;
+	pid_t ZOMBIE_PID;
 
 	for (a = 0; a <= 4; a++)
 	{
-		pid = fork();
-		if (pid < 0)
+		ZOMBIE_PID = fork();
+		if (ZOMBIE_PID < 0)
 		{
 			exit(EXIT_FAILURE);
 		}
-		else if (pid == 0)
+		else if (ZOMBIE_PID == 0)
 		{
 			exit(EXIT_SUCCESS);
 		}
-		printf("Zombie process created, PID: %d\n", pid);
+		printf("Zombie process created, PID: %d\n", ZOMBIE_PID);
 	}
-	infinite_while();
+	return(infinite_while());
 }
 /**
  * infinite_while - an infinite while loop
