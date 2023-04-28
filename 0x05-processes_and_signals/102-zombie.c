@@ -26,7 +26,7 @@ int main(void)
 		}
 		printf("Zombie process created, PID: %d\n", ZOMBIE_PID);
 	}
-	return(infinite_while());
+	return (infinite_while());
 }
 /**
  * infinite_while - an infinite while loop
