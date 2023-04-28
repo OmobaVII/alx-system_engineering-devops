@@ -2,5 +2,4 @@
 # A script that stops the 4-to_infinity_and_beyond process
 
 i="4-to_infinity_and_beyond"
-
-kill $(pgrep -f $i)
+kill "$(pgrep -f $i)"
