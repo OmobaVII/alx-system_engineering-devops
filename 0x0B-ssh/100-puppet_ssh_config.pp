@@ -6,5 +6,5 @@ file { '/root/.ssh/config':
     ensure  => file,
     path    => '/root/.ssh/config',
     content => "Host 18.235.234.111\n\t PasswordAuthentication no\n\t IdentityFile ~/.ssh/school",
-    mode    => '0600',
+    mode    => '0644',
 }
