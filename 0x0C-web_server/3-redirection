@@ -6,7 +6,7 @@
 # /redirect_me should redirect to another page
 # redirection must be 301 Moved Permanently
 
-new_redirect="\tlocation /redirect_me {\n\t\treturn 301 http://linkedin.com/in/sanni-omoba;\n\t\t}\n"
+new_redirect="\tlocation /redirect_me {\n\t\t return 301 https://linkedin.com/in/sanni-omoba;\n\t}\n"
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
