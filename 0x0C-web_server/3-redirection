@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# A script that installs nginx in an ubuntu machine
+# nginx will listen on port 80
+# when querying Nginx at its root using curl localhost
+# it should return "Hello World!"
+# /redirect_me should redirect to another page
+# redirection must be 301 Moved Permanently
+
+new_redirect="\tlocation /redirect_me {\n\t\treturn 301 http://linkedin.com/in/sanni-omoba;\n\t\t}\n"
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i "33s|.*|$new_redirect|" /etc/nginx/sites-available/default
+sudo /etc/init.d/nginx restart
