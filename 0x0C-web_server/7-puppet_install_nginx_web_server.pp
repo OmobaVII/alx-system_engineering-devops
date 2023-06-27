@@ -2,6 +2,7 @@
 
 exec { 'update packages':
     command => 'apt-get -y update',
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 package { 'nginx':
     ensure => 'installed',
@@ -33,4 +34,5 @@ file { 'Nginx config file':
 }
 exec { 'restart nginx':
     command => 'sudo /etc/init.d/nginx restart',
+    path    => '/usr/bin:/usr/sbin:/bin',
 }
