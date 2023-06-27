@@ -1,3 +1,5 @@
+# Installing nginx with correct configurations
+
 exec { 'update packages':
     command => 'apt-get -y update',
 }
