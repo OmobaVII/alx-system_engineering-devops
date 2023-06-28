@@ -6,11 +6,6 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
-exec { 'nginx root':
-    command  => 'echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html',
-    path     => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-    escalate => true,
-}
 file { '/var/www/html/index.nginx-debian.html':
     ensure  => file,
     path    => '/var/www/html/index.nginx-debian.html',
