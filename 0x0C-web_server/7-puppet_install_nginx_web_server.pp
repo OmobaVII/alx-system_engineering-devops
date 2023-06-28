@@ -6,9 +6,9 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
-exec { 'chmod www folder':
-    command => 'chmod -R 755 /var/www',
-    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+exec { 'nginx index':
+    command => 'echo "Hello World!" | tee /var/www/html/index.nginx-debian.html',
+    user    => 'root',
 }
 file { 'Nginx config index':
     ensure  => file,
