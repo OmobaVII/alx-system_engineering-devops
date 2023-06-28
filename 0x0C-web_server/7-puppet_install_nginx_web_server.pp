@@ -7,8 +7,8 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
-exec { 'chmod folder':
-    command => 'chmod -R 755 /var/www',
+exec { 'nginx root':
+    command => 'echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html',
     path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 file { '/var/www/html/index.nginx-debian.html':
