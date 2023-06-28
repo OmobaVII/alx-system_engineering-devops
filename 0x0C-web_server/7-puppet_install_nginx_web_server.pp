@@ -7,7 +7,7 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
-file { '/var/www/html/index.html':
+file { '/var/www/html/index.nginx-debian.html':
     content => "Hello World!\n",
 }
 file { 'Nginx config file':
