@@ -1,4 +1,8 @@
 # installing nginx with correct configurations
+exec { 'add nginx stable repo':
+  command => 'sudo add-apt-repository ppa:nginx/stable',
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
 exec { 'update packages':
     command => 'apt-get -y update',
     path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
@@ -7,13 +11,11 @@ package { 'nginx':
     ensure => 'installed',
 }
 exec { 'nginx index':
+    command => "echo 'Hello World!' | sudo tee /usr/share/nginx/html/index.html",
     user    => 'root',
-    command => "echo 'Hello World!' | tee /var/www/html/index.nginx-debian.html",
-    path    => '/usr/bin:/bin:/usr/local/bin',
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
-file { 'Nginx config index':
-    ensure  => file,
-    path    => '/var/www/html/index.nginx-debian.html',
+file { '/var/www/html/index.nginx-debian.html':
     content => "Hello World!",
 }
 file { 'Nginx config file':
