@@ -8,8 +8,8 @@ package { 'nginx':
 }
 file { 'Nginx config index':
     ensure  => file,
-    path    => '/var/www/html/index.nginx-debian.html'
-    content => "Hello World!"
+    path    => '/var/www/html/index.nginx-debian.html',
+    content => "Hello World!",
 }
 file { '/var/www/html/index.nginx-debian.html':
     ensure  => file,
