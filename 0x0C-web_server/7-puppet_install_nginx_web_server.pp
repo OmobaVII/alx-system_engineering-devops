@@ -9,6 +9,7 @@ package { 'nginx':
 exec { 'nginx index':
     command => "echo 'Hello World!' > /var/www/html/index.nginx-debian.html",
     user    => 'root',
+    path    => '/usr/bin:/bin:/usr/local/bin',
 }
 file { 'Nginx config index':
     ensure  => file,
