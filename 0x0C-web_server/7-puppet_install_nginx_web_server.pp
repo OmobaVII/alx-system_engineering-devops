@@ -6,6 +6,10 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
+exec { 'change index':
+    command => "echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html",
+    path    => '/usr/bin:/usr/sbin:/bin',
+}
 file { '/var/www/html/index.nginx-debian.html':
     ensure  => file,
     path    => '/var/www/html/index.nginx-debian.html',
