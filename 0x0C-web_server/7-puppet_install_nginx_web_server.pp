@@ -7,11 +7,14 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
+exec { 'chmod folder':
+    command => 'chmod -R 755 /var/www',
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
 file { '/var/www/html/index.nginx-debian.html':
     ensure  => file,
     path    => '/var/www/html/index.nginx-debian.html',
     content => "Hello World!",
-    mode    => '0644',
 }
 file { 'Nginx config file':
     ensure  => file,
