@@ -9,11 +9,8 @@ package { 'nginx':
 file { 'Nginx config index':
     ensure  => file,
     path    => '/var/www/html/index.nginx-debian.html',
-    content => "Hello World!",
-}
-file { '/var/www/html/index.nginx-debian.html':
-    ensure  => file,
-    content => "Hello World!",
+    content =>
+"Hello World!",
 }
 file { 'Nginx config file':
     ensure  => file,
