@@ -7,7 +7,7 @@ package { 'nginx':
     ensure => 'installed',
 }
 exec { 'nginx index':
-    command => 'echo "Hello World!" | tee /var/www/html/index.nginx-debian.html',
+    command => "echo 'Hello World!' > /var/www/html/index.nginx-debian.html",
     user    => 'root',
 }
 file { 'Nginx config index':
