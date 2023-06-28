@@ -6,13 +6,12 @@ exec { 'update packages':
 package { 'nginx':
     ensure => 'installed',
 }
-exec { 'change index':
-    command => "echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html",
-    path    => '/usr/bin:/usr/sbin:/bin',
+exec { 'chmod www folder':
+    command => 'chmod -R 755 /var/www',
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 }
 file { '/var/www/html/index.nginx-debian.html':
     ensure  => file,
-    path    => '/var/www/html/index.nginx-debian.html',
     content => "Hello World!",
 }
 file { 'Nginx config file':
