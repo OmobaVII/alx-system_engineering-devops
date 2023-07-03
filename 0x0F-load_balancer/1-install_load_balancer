@@ -17,5 +17,4 @@ sudo cp /etc/haproxy/haproxy.cfg  /etc/haproxy/haproxy.cfg.backup
 
 sudo sed -i "\$a $two_servers" /etc/haproxy/haproxy.cfg
 
-sudo /etc/init.d/nginx stop
 sudo /etc/init.d/haproxy restart
