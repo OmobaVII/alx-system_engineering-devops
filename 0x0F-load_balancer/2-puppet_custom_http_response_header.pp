@@ -7,9 +7,9 @@ package { 'nginx':
     ensure => 'installed',
 }
 exec { 'add_header':
-  provider    => shell,
-  environment => ["HOST=${hostname}"],
-  command     => 'sudo sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOST\";/" /etc/nginx/nginx.conf',
+    provider => posix,
+    command  => "sudo sed -i '23a\\\tadd_header X-Served-By \"\$HOSTNAME\";' /etc/nginx/sites-available/default",
+    path     => '/usr/bin:/usr/sbin:/bin:/sbin',
 }
 exec { 'restart nginx':
     command => 'sudo /etc/init.d/nginx restart',
