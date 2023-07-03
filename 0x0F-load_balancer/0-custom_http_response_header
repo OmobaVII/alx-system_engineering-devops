@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# A script that installs nginx in an ubuntu machine
+# nginx will listen on port 80
+# when querying Nginx at its root using curl localhost
+# it should return "Hello World!"
+# /redirect_me should redirect to another page
+# redirection must be 301 Moved Permanently
+# 404 error page must custom to print something
+# HTTP response conains a custom header showing the name it is served by
+
+after_header="# listen [::]:443 ssl default_server;"
+new_header="\\\tadd_header X-Served-By $HOSTNAME;"
+new_redirect="\tlocation /redirect_me {\n\t\t return 301 https://linkedin.com/in/sanni-omoba;\n\t}\n"
+input_after="# pass PHP scripts to FastCGI server"
+new_input="\\\terror_page 404 /404.html;\n\tlocation /404.html {\n\t\tinternal;\n\t}\n"
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+sudo sed -i "33s|.*|$new_redirect|" /etc/nginx/sites-available/default
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo sed -i "/$input_after/a$new_input" /etc/nginx/sites-available/default
+
+sudo sed -i "/$after_header/a$new_header" /etc/nginx/sites-available/default
+
+sudo /etc/init.d/nginx restart
