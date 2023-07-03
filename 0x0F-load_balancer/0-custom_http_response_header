@@ -8,7 +8,7 @@
 # 404 error page must custom to print something
 # HTTP response conains a custom header showing the name it is served by
 
-after_header="# listen [::]:443 ssl default_server;"
+after_header="\\\t# listen [::]:443 ssl default_server;"
 new_header="\\\tadd_header X-Served-By $HOSTNAME;"
 new_redirect="\tlocation /redirect_me {\n\t\t return 301 https://linkedin.com/in/sanni-omoba;\n\t}\n"
 input_after="# pass PHP scripts to FastCGI server"
