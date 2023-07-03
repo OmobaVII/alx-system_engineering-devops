@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # install in a new Ubuntu machine HAProxy with the following requirements
 # Configure HAproxy so that it send traffic to web-01 and web-02
 # Distribute requests using a roundrobin algorithm
