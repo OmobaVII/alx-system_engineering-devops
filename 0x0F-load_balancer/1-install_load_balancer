@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
-# Configures load balancer
+# install in a new Ubuntu machine HAProxy with the following requirements
+# Configure HAproxy so that it send traffic to web-01 and web-02
+# Distribute requests using a roundrobin algorithm
+# Make sure that HAproxy can be managed via an init script
 
-apt-get update
-apt-get install -y software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.0
-apt-get update
-apt-get install -y haproxy=2.0.\*
-sed -i "$ a frontend load_balancer\n    bind *:80\n    mode http\n    default_backend web_servers\nbackend web_servers\n    balance roundrobin\n    server web-01 34.73.133.125:80 check\n    server web-02 52.201.252.232:80 check" /etc/haproxy/haproxy.cfg
+two_servers="\\\nlisten webservers\n\tbind :80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 220652-web-01 18.235.234.111:80 check\n\tserver 220652-web-02 100.25.181.230:80 check\n"
 
-/etc/init.d/haproxy restart
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
+sudo apt-get -y install haproxy
+
+sudo sed -i "\$a ENABLED=1\n" /etc/default/haproxy
+
+
+sudo cp /etc/haproxy/haproxy.cfg  /etc/haproxy/haproxy.cfg.backup
+
+sudo sed -i "\$a $two_servers" /etc/haproxy/haproxy.cfg
+
+sudo /etc/init.d/nginx stop
+sudo /etc/init.d/haproxy restart
