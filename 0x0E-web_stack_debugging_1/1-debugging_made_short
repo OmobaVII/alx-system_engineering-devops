@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Creates a symbolic link between both files but using the forced method to ensure creation
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo /etc/init.d/nginx restart
+kill "$(pgrep "nginx" | head -1)"
