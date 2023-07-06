@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configure my domain zone
 
-subdomains_all=( "www" "lb-01" "web-01" "web-02" )
+all_subdomains=( "www" "lb-01" "web-01" "web-02" )
 
 runDig () {
     subdomain=$1
@@ -12,7 +12,7 @@ runDig () {
 
 if [ $# -eq 1 ]; then
     domain="$1"
-    for i in "${subdomains_all[@]}"
+    for i in "${all_subdomains[@]}"
     do
 	runDig "$i" "$domain"
     done
