@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Configures the given container to run nginx as nginx
+# To listen on all active IPs on port 8080
+
+# Allows nginx configuration file to be edited
+chmod 644 /etc/nginx/nginx.conf
+
+# Allows the user nginx to be able to start nginx
+sudo sed -i '/#user www-data/a\user nginx' /etc/nginx/nginx.conf
+
+# Allows nginx to listen on port 8080
+sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+
+# Stops the apache2 previously listening on port 8080
+pkill apache2
+
+# Start nginx as user nginx
+sudo -u nginx service nginx restart
