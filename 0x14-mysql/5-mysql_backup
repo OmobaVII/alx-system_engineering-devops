@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Generates a MYSQL dump and creates a compressed archive out of it
+today_date=$(date +"%d-%m-%Y")
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -czvf "$today_date.tar.gz" backup.sql
