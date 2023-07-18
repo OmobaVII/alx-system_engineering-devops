@@ -2,4 +2,4 @@
 # Script accepts one argument which is the user to run the script as
 # This script runs the whoami command as the user specified
 
-sudo -u "$1" whoami
+runuser -l "$1" -c 'whoami'
