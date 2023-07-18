@@ -6,7 +6,7 @@
 chmod 644 /etc/nginx/nginx.conf
 
 # Allows the user nginx to be able to start nginx
-sudo sed -i '/#user www-data/a\user nginx' /etc/nginx/nginx.conf
+sudo sed -i '/#user www-data/a\user nginx;' /etc/nginx/nginx.conf
 
 # Allows nginx to listen on port 8080
 sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
