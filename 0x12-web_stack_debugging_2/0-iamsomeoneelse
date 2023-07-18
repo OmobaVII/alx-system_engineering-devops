@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Script accepts one argument which is the user to run the script as
-# This script runs the whoami command as the user specified
 
 runuser -u "$1" -- whoami
