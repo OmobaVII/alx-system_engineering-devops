@@ -25,7 +25,7 @@ if __name__ == "__main__":
             if task.get("completed") is True:
                 Completed += 1
                 Title.append(task.get("title"))
-    print("Employee {} is done with taks({}/{}):".format(Username, Completed,
-                                                         Total))
+    print("Employee {} is done with tasks({}/{}):".format(Username, Completed,
+                                                          Total))
     for task in Title:
         print("\t {}".format(task))
