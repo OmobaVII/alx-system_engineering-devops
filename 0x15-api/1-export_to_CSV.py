@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
 Uses READ API for a given employee ID,
-Returns information about the employee TODO list
-progress
+saves information about todo list to csv file
 """
 import requests
 from sys import argv
@@ -28,5 +27,5 @@ if __name__ == "__main__":
         write = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_ALL)
         for task in Title:
             write.writerow({"USER_ID": argv[1], "USERNAME": Username,
-                           "TASK_COMPLETED_STATUS": task[0],
-                           "TASK_TITLE": task[1]})
+                            "TASK_COMPLETED_STATUS": task[0],
+                            "TASK_TITLE": task[1]})
