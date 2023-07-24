@@ -30,4 +30,4 @@ if __name__ == "__main__":
 
     json_file = "todo_all_employees.json"
     with open(json_file, "w") as myfile:
-        json.dump(task_dict, myfile, sort_keys=True)
+        json.dump(task_dict, myfile)
