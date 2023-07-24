@@ -9,7 +9,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    """prevents code form executing when imported"""
+    """prevents from executing when imported"""
     all_users = requests.get("https://jsonplaceholder.typicode.com/users")
     for user in all_users.json():
         if user.get('id') == int(argv[1]):
@@ -28,4 +28,4 @@ if __name__ == "__main__":
     print("Employee {} is done with taks({}/{}):".format(Username, Completed,
                                                          Total))
     for task in Title:
-        print("\t{}".format(task))
+        print("\t {}".format(task))
