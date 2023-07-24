@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     task_list = []
     for item in Title:
-        task_list.append({"task": item[1], "completed" item[0],
+        task_list.append({"task": item[1], "completed": item[0],
                          "username": Username})
 
     json_data = {str(argv[1]): task_list}
