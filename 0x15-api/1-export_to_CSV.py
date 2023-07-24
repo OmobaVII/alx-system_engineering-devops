@@ -3,9 +3,9 @@
 Uses READ API for a given employee ID,
 saves information about todo list to csv file
 """
+import csv
 import requests
 from sys import argv
-import csv
 
 
 if __name__ == "__main__":
