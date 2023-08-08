@@ -27,11 +27,12 @@ def count_words(subreddit, word_list, after=None, count=None):
         words_in_title = []
         for item in hots:
             title = item['data']['title']
-            for word in title.lower().split():
-                words_in_title.append(word.strip(".,,!?()[]{}\"'"))
-            for w in word_list:
-                if w.lower() in words_in_title:
-                    count[w.lower()] += 1
+            translator = str.maketrans('', '', '.,!?()[]{}"\'')
+            words_in_title = [word.translate(translator) for word in title.lower().split()]
+            lower_word_list = set(w.lower() for w in word_list)
+            for word in words_in_title:
+                if word in lower_word_list:
+                    count[word] += 1
 
         after = result['data']['after']
         if after:
