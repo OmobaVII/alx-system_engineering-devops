@@ -24,7 +24,6 @@ def count_words(subreddit, word_list, after=None, count=None):
     if response.status_code == 200:
         result = response.json()
         hots = result['data']['children']
-        words_in_title = []
         for item in hots:
             title = item['data']['title']
             translator = str.maketrans('', '', '.,!?()[]{}"\'')
