@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # Gracefully reload gunicorn
-
-sudo pkill -HUP gunicorn
+ps aux | grep gnicorn | awk '{ print $2 }' | xargs kill -HUP
