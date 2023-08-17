@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Gracefully reload gunicorn
 
-pkill -HUP "gunicorn"
+sudo pkill -HUP gunicorn
