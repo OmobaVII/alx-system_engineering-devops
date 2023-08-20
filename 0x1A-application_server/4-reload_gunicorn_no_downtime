@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Gracefully reload gunicorn
-pkill -HUP gunicorn
+pgrep gunicorn | xargs | cut -d ' ' -f 1 | xargs kill -HUP
